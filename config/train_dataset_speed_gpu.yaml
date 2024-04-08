@@ -1,0 +1,44 @@
+dataset:
+  data_dir: data/boutique/predict
+  train_data_dir: data/boutique/
+  step_num_in: 2880
+  step_num_out: 2880
+  num_nodes: 10
+  input_size: 5
+  batch_size: 64
+  device: cuda:0
+
+AdapGLA:
+  num_block: 2
+  kernel_size: 5
+  num_cheb_filter: 128
+  num_time_filter: 128
+  conv_type: cheb
+  K: 3
+  init_feature_num: 5
+  adj_mx_path: data/boutique/adj_mx_static.npy
+
+AdapGLD:
+  K: 3
+  graph_num: 1
+  rnn_hidden_size: 128
+  rnn_layer_num: 1
+  use_gc: True
+  batch_first: True
+  use_curriculum_learning: True
+  cl_decay_steps: 2000
+  activation: tanh
+  adj_mx_path: data/boutique/adj_mx_static.npy
+  init_feature_num: 5
+
+AdapGLT:
+  K: 3
+  rnn_hidden_size: 128
+  rnn_layer_num: 1
+  batch_first: True
+  conv_type: cheb
+  with_res: False
+  num_block: 2
+  num_cheb_filter: 128
+  init_feature_num: 5
+  adj_mx_path: data/boutique/adj_mx_static.npy
