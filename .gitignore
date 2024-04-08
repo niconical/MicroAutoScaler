@@ -2,3 +2,5 @@ data/boutique/*
 data/boutique/*/*
 
 __pycache__/*
+models/__pycache__/*
+trainer/__pycache__/*
